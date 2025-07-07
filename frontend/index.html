@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medic App</title>
+    <script>
+        async function checkStatus() {
+            const response = await fetch('/api/status');
+            const data = await response.json();
+            document.getElementById('status').textContent = data.status;
+        }
+        window.onload = checkStatus;
+    </script>
+</head>
+<body>
+    <h1>Medic App</h1>
+    <p>Backend status: <span id="status">loading...</span></p>
+</body>
+</html>
