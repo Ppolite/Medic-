@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medic App</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-top: 0;
+        }
+    </style>
+    <script>
+        async function checkStatus() {
+            const response = await fetch('/api/status');
+            const data = await response.json();
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = data.status;
+            statusEl.style.color = data.status === 'ok' ? 'green' : 'red';
+        }
+        window.onload = checkStatus;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Medic App</h1>
+        <p>Backend status: <span id="status">loading...</span></p>
+    </div>
+</body>
+</html>
