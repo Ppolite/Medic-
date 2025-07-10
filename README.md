@@ -67,3 +67,13 @@ if user_input.lower() in dangerous_situations:
     # Get user's location
     g = geocoder.ip('me')
     user_location = (g.city, g.latlng
+
+## Roadmap
+
+- Integrate with electronic health record (EHR) systems to automatically update patient files when alerts are triggered.
+- Connect with consumer wearables to pull heart rate and activity data for improving stress detection accuracy.
+- Explore partnerships with medical IoT devices for real-time monitoring.
+
+## Privacy and Compliance
+
+This project handles potentially sensitive medical information. Any real deployment must comply with local medical privacy regulations such as HIPAA. Data should be encrypted in transit and at rest, and access limited to authorized medical professionals.
